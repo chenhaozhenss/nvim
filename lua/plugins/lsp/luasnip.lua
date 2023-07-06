@@ -5,7 +5,10 @@ return {
 	-- install jsregexp (optional!).
 	build = "make install_jsregexp",
 	config = function()
-
-
+    require('luasnip.loaders.from_vscode').lazy_load({
+      path={
+        "~/.config/nvim/lua/snippet/layui.json"
+      }
+    })
 	end,
 }

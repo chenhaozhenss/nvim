@@ -18,7 +18,10 @@ map("n", "H", "g0", opt)
 map("n", "L", "g$", opt)
 map("v", "H", "g0", opt)
 map("v", "L", "g$", opt)
-map("n", "J", "", opt)
+map("v", "J", "", opt)
+map("v", "K", "", opt)
+
+
 map("n", "K", "", opt)
 map("n", "U", ":redo<cr>", opt)
 map("n", "sv", ":vsp<cr>", opt)
@@ -35,15 +38,11 @@ map("n", "<M-j>", "<c-w>j", opt)
 map("n", "<c-9>", ":BufferLineCyclePrev<cr>", opt)
 map("n", "<c-0>", ":BufferLineCycleNext<cr>", opt)
 map("n", "<leader>w", ":BufferLinePickClose<cr>", opt)
-map("n", "<c-w>", ":bdelete <cr>", opt)
---------------close buffer--------------------
---map('n','<c-w>',':BufferLinePickClose<cr>',opt)
+--map("n", "<c-w>", ":BufferLinePickClose<cr>", opt)
 -------------leap--------------------
 map("n", "f", "<Plug>(leap-forward-to)", opt)
 map("n", "F", "<Plug>(leap-backward-to)", opt)
 --------------corsur multi-----------------
-
-
 
 --------------Telescope-----------------
 ---------------------------cmp------------------------
@@ -66,12 +65,23 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 vim.keymap.set("n", "<leader>x", "<cmd>TroubleToggle document_diagnostics<cr>", { silent = true, noremap = true })
-
+-------live-server-------
+map('n','<leader><leader>l',':LiveServerStart<cr>',opt)
 --------------dap------------
-map('n','<leader>d',":lua require'dap'.toggle_breakpoint()<cr>",opt)
-map('n','<leader>dc',":lua require'dap'.continue()<cr>",opt)
-map('n','<leader>ds',":lua require'dap'.step_over()<cr>",opt)
-map('n','<leader>di',":lua require'dap'.step_into()<cr>",opt)
-map('n','<leader>do',":lua require'dap'.repl.open()<cr>",opt)
-
+map("n", "<leader>b", ":lua require'dap'.toggle_breakpoint()<cr>", opt)
+map("n", "<leader>dc", ":lua require'dap'.continue()<cr>", opt)
+map("n", "<leader>ds", ":lua require'dap'.step_over()<cr>", opt)
+map("n", "<leader>di", ":lua require'dap'.step_into()<cr>", opt)
+map("n", "<leader>do", ":lua require'dap'.step_out()<cr>", opt)
+  map(
+    "n",
+    "<leader>de",
+    ":lua require'dap'.close()<CR>"
+      .. ":lua require'dap'.terminate()<CR>"
+      .. ":lua require'dap.repl'.close()<CR>"
+      .. ":lua require'dapui'.close()<CR>"
+      .. ":lua require('dap').clear_breakpoints()<CR>"
+      .. "<C-w>o<CR>",
+    opt
+  )
 

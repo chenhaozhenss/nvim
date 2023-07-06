@@ -2,6 +2,8 @@ return {
 	"neovim/nvim-lspconfig",
 	config = function()
 		local lspconfig = require("lspconfig")
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		capabilities.textDocument.completion.completionItem.snippetSupport = true
 		lspconfig.lua_ls.setup({
 			settings = {
 				Lua = {
@@ -14,7 +16,7 @@ return {
 						globals = { "vim" },
 					},
 					workspace = {
-            checkThirdParty =false,
+						checkThirdParty = false,
 						-- Make the server aware of Neovim runtime files
 						library = vim.api.nvim_get_runtime_file("", true),
 					},
@@ -22,18 +24,27 @@ return {
 					telemetry = {
 						enable = false,
 					},
-          
+
 					completion = {
 						showWord = {
-              diable = true
-            },
+							diable = true,
+						},
 					},
 				},
 			},
 		})
 		lspconfig.tsserver.setup({})
-    lspconfig.remark_ls.setup({})
-    lspconfig.bashls.setup({})
+		lspconfig.remark_ls.setup({})
+		lspconfig.bashls.setup({})
+		lspconfig.html.setup({
+			capabilities = capabilities,
+			configurationSection = { "html", "css", "javascript" },
+			embeddedLanguages = {
+				css = true,
+				javascript = true,
+			},
+			provideFormatter = true,
+		})
 
 		--		lspconfig.pyright.setup({})
 		--			lspconfig.tsserver.setup({})

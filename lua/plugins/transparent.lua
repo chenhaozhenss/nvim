@@ -35,6 +35,8 @@ return {
 				"BufferLineSeparator",
 				"BufferLineIndicatorSelected",
         'BufferLineIcon',
+        'TroubleNormal',
+        'TroubleNormalNC',
 
 				"neotreeNormal",
 				"neotreeNormalNC",
