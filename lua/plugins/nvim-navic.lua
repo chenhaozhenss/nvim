@@ -2,7 +2,7 @@ return{
   "SmiteshP/nvim-navic",
   lazy = true,
   init = function()
-    vim.g.navic_silence = true
+    vim.g.navic_silence = false
   end,
   opts = function()
     return {

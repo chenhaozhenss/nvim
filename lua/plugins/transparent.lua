@@ -37,7 +37,8 @@ return {
         'BufferLineIcon',
         'TroubleNormal',
         'TroubleNormalNC',
-
+        'AlphaNormal',
+        'AlphaNormalNC',
 				"neotreeNormal",
 				"neotreeNormalNC",
 				"NormalFloat",

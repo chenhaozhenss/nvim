@@ -11,7 +11,7 @@ return {
 				offsets = {
 					{
 						filetype = "neo-tree",
-						text = "File Explorer",
+						text = "neo-tree",
 						highlight = "Directory",
 						text_align = "left",
 					},
@@ -19,6 +19,7 @@ return {
           modified_icon = '',
 				-- 使用 nvim 内置 LSP  后续课程会配置
 				diagnostics = "nvim_lsp",
+        always_show_bufferline=false,
 				-- 可选，显示 LSP 报错图标
 				---@diagnostic disable-next-line: unused-local
 				diagnostics_indicator = function(count, level, diagnostics_dict, context)
